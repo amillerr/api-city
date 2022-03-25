@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/scss/style.css">
+    <title>Kladr test task</title>
+  </head>
+  <body>
+    <form class="form">
+      <input list="city-list" id="myList" name="myList" class="form__input" placeholder="Город"/>
+    </form>
+
+    <script>
+      const queryInput = document.querySelector(".form__input");
+
+      function apiData(data) {
+        let cityArr = data.result;
+        return cityArr.map(function (city) {
+          console.log(city.name);
+          queryInput.innerHTML = `<datalist id="city-list">
+                                    <option>${city.name}</option>
+                                  </datalist>`;
+        });
+      }
+      queryInput.addEventListener("input", (e) => {
+        const query = e.target.value;
+        const src = `https://kladr-api.ru/api.php?contentType=city&limit=1&query=${query}&callback=apiData`;
+        console.log(query);
+        document.body.append(
+          Object.assign(document.createElement("script"), {
+            src,
+          })
+        );
+      });
+    </script>
+  </body>
+</html>
