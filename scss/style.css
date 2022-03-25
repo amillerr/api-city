@@ -14,7 +14,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #F5F9FF; }
+  background: #F5F9FF; 
+}
 
 .form__input {
   display: block;
