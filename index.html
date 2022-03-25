@@ -25,7 +25,6 @@
         let cityArr = data.result;
         let cities = "";
         cityArr.map(function (city) {
-          console.log(city);
           cities += `<option>${city.name}</option>`;
         });
         queryInput.innerHTML = `<datalist class="form__input-data" id="city-list">${cities}</datalist>`;
