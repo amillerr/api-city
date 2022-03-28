@@ -1,9 +1,8 @@
-  $input-color: #99A3BA;
-  $input-border: #CDD9ED;
-  $input-background: #fff;
-  $input-placeholder: #CBD1DC;
-  $input-border-focus: #275EFE;
-
+$input-color: #99a3ba;
+$input-border: #cdd9ed;
+$input-background: #fff;
+$input-placeholder: #cbd1dc;
+$input-border-focus: #275efe;
 
 body {
   min-height: 100vh;
@@ -12,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #F5F9FF;  
+  background: #f5f9ff;
 }
 
 .form__input {
@@ -28,12 +27,12 @@ body {
   color: $input-color;
   border: 1px solid $input-border;
   background: $input-background;
-  transition: border .3s ease;
+  transition: border 0.3s ease;
   &::placeholder {
-      color: $input-placeholder;
+    color: $input-placeholder;
   }
   &:focus {
-      outline: none;
-      border-color: $input-border-focus;
+    outline: none;
+    border-color: $input-border-focus;
   }
 }

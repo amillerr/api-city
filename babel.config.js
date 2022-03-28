@@ -1,5 +1,5 @@
 const presets = [
-  ['@babel/preset-env', { 
+  ['@babel/preset-env', {
     targets: { 
       edge: '17',
       ie: '11',
@@ -11,4 +11,4 @@ const presets = [
   }]
 ];
 
-module.exports = { presets };
+module.exports = { presets }; 

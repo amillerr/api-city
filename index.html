@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./scss/style.css">
-    <title>Kladr test task</title>
+    <title>KLADR</title>
   </head>
   <body>
     <form class="form">
@@ -17,7 +16,26 @@
         placeholder="Город"
       />
     </form>
+    <script>
+      const queryInput = document.querySelector(".form__input");
 
-    <script src="index.js"></script>
+      function apiData(data) {
+        let cityArr = data.result;
+        let cities = "";
+        cityArr.map(function (city) {
+          cities += `<option>${city.name}</option>`;
+        });
+        queryInput.innerHTML = `<datalist class="form__input-data" id="city-list">${cities}</datalist>`;
+      }
+      queryInput.addEventListener("input", (e) => {
+        const query = e.target.value;
+        const src = `https://kladr-api.ru/api.php?contentType=city&limit=5&query=${query}&callback=apiData`;
+        document.body.append(
+          Object.assign(document.createElement("script"), {
+            src,
+          })
+        );
+      });
+    </script>
   </body>
 </html>
