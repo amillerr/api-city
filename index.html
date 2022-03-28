@@ -1,0 +1,19 @@
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>KLADR</title><script defer="defer" src="main.js"></script></head><body><form class="form"><input list="city-list" id="myList" name="myList" class="form__input" placeholder="Город"/></form><script>const queryInput = document.querySelector(".form__input");
+
+      function apiData(data) {
+        let cityArr = data.result;
+        let cities = "";
+        cityArr.map(function (city) {
+          cities += `<option>${city.name}</option>`;
+        });
+        queryInput.innerHTML = `<datalist class="form__input-data" id="city-list">${cities}</datalist>`;
+      }
+      queryInput.addEventListener("input", (e) => {
+        const query = e.target.value;
+        const src = `https://kladr-api.ru/api.php?contentType=city&limit=5&query=${query}&callback=apiData`;
+        document.body.append(
+          Object.assign(document.createElement("script"), {
+            src,
+          })
+        );
+      });</script></body></html>
