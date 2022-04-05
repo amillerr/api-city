@@ -12,5 +12,5 @@
 Чтобы скопировтаь репозиторий к себе на локальный компьютер выполните следующую комманду 
 
 ```sh
-git clone https://github.com/amillerr/api-test.git
+git clone https://github.com/amillerr/api-city.git
 ```
